@@ -1,3 +1,4 @@
+import { Spinner, Box } from "@chakra-ui/react";
 import { useEffect, useReducer, usevalue, useState } from "react";
 import "./App.css";
 import { Welcome } from "./Components/Welcome";
@@ -15,14 +16,23 @@ function App() {
   }, []);
 
   if (count) {
-    return <Welcome />;
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+        alignContent={"center"}
+      />
+    );
   }
 
   return (
-    <div className="App">
+    <Box className="App">
       <Home />
       <AllRoutes />
-    </div>
+    </Box>
   );
 }
 
